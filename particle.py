@@ -1,6 +1,3 @@
-# https://flatredball.com/documentation/tutorials/math/circle-collision/
-# Note to self: firstball is the other ball
-
 import math
 from pygame import Vector2, draw
 
