@@ -3,12 +3,13 @@ from particle import Droplet
 from random import randint
 from numpy import array
 
+# Init pygame
 pygame.init()
 WIDTH, HEIGHT = 800, 600
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Fake Fluid Simulation")
 
-DT = 2  # Delta time (amount of extra time for a frame)
+DT = 2  # Speed of simulation
 N_BALLS = 200
 MOUSE_SIZE = 30
 
@@ -28,7 +29,7 @@ while running:
     # Calculate ball collision with every ball possible (slow)
     for b1 in balls:
         for b2 in balls:
-            if b1 != b2:
+            if b1 != b2:  # Are balls different?
                 b1.colliding(b2, DT)
 
     # Draw balls and update their position
@@ -36,7 +37,7 @@ while running:
         ball.update_position()
         ball.draw(screen)
 
-    # Create mouse collider
+    # Create mouse circle
     mousepos = pygame.mouse.get_pos()
     pygame.draw.circle(screen, (65, 102, 245), mousepos, MOUSE_SIZE)
 
